@@ -1,0 +1,63 @@
+@import '../../App.scss'; 
+// @import '../../index.scss';
+// $orange: #F58220;
+// $grey-bg: #58585A;
+// $red: #FD4F00;
+// $white: #ffffff;
+// $black: #000000;
+// $faded-black: #231F20;
+footer {
+    border-top: 1px solid #CACACA;
+
+    .footer-top {
+        padding: 0 5%;
+        margin: 2.5rem 0;
+
+        .footer-right {
+            padding: 0;
+
+            li {
+                margin-left: 35px;
+
+                a {
+                    color: $black;
+                    @extend %small-p;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            li.footer-active {
+                a {
+                    color: $red;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1.7px solid #CACACA;
+        padding: 2.5rem 5%;
+
+        p {
+            @extend %small-p;
+            color: $black;
+        }
+
+        p.copyright-text {
+            color: $grey-bg  !important;
+        }
+
+        .social-icons {
+            padding: 0;
+
+            li {
+                margin-right: 20px;
+            }
+        }
+    }
+
+}

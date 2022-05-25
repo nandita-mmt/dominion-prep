@@ -1,0 +1,154 @@
+@import "../../App.scss";
+.navbar {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+.navbar-brand {
+    // max-width: 150px;
+    object-fit: contain;
+
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
+    padding: 0;
+    color: $orange;
+    height: 30px;
+    width: 20px;
+    position: relative;
+    opacity: 1;
+}
+
+.navbar-light .navbar-toggler .hamburger {
+    height: 3px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    background-color: $red;
+    z-index: 0;
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-toggler .hamburger::before {
+    border: 1px solid $red;
+    position: absolute;
+    content: ' ';
+    height: 3px;
+    width: 100%;
+    display: inline-block;
+    bottom: 7px;
+    left: 0;
+    background-color: $red;
+    z-index: 3;
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-toggler .hamburger::after {
+    border: 1px solid $red;
+    position: absolute;
+    content: ' ';
+    height: 3px;
+    width: 100%;
+    display: inline-block;
+    top: 7px;
+    left: 0;
+    background-color: $red;
+    z-index: 3;
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-toggler[aria-expanded="true"] .hamburger::before {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-toggler[aria-expanded="true"] .hamburger {
+    transform-origin: 50% 50%;
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-toggler[aria-expanded="true"] .hamburger::after {
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    transition: 0.3s;
+    top: 0;
+}
+
+
+// header 
+header {
+    width: 100%;
+    background-color: $white;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    // position: fixed;
+    @extend %flex-row;
+    width: inherit;
+    height: inherit;
+    // padding: 0px 5% !important;
+    // padding-left: 5%;
+    // padding-right: 5%;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+
+    .header-right {
+        padding: 2% 0;
+
+
+        li {
+            margin: 0 20px;
+            position: relative;
+
+            a {
+                @extend %small-p;
+                color: $black;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .login-signup {
+            @include button-style($btn-height: 48px, $bg-color: $red, $border-color: $red, $text-color: $white, $hover-bg-color: $red, $hover-text-color: $white);
+        }
+
+        li.active {
+            a {
+                color: $red;
+                font-weight: 700;
+
+                &::after {
+                    content: ' ';
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    height: 3px;
+                    width: 100%;
+                    background-color: #FD4F00;
+                }
+
+            }
+        }
+    }
+}

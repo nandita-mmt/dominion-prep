@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+button,
+p,
+a {
+    font-family: 'Montserrat', sans-serif;
+}
+
+big_h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 0;
+
+    @media(max-width:575px) {
+        font-size: 34px;
+        line-height: 36px;
+    }
+}
+
+h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 0;
+
+    @media(max-width:575px) {
+        font-size: 27px;
+        line-height: 30px;
+    }
+}
+
+h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 0;
+
+    @media(max-width:575px) {
+        font-size: 23px;
+        line-height: 30px;
+    }
+}
+
+h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+ul {
+    margin-bottom: 0;
+    // padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+$orange: #F58220;
+;
+$grey-bg: #58585A;
+$red: #FD4F00;
+$white: #ffffff;
+$black: #000000;
+$faded-black: #231F20;
+
+font {
+    color: $orange;
+}
+%small-p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    @media(max-width:991px) {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    @media(max-width:575px) {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+%medium-p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+
+    @media(max-width:991px) {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    @media(max-width:575px) {
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+
+%big-p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+
+    @media(max-width:991px) {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    @media(max-width:680px) {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+
+%flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@mixin button-style($btn-height, $bg-color, $border-color, $text-color, $hover-bg-color, $hover-text-color) {
+    height: $btn-height;
+    width: 140px;
+    @extend %flex-row;
+    // padding: 14px;
+    text-align: center;
+    background-color: $bg-color;
+    border-radius: 24px;
+    border: 1px solid $border-color;
+    color: $text-color;
+    transition: 0.3s ease;
+
+    &:hover {
+        color: $hover-text-color;
+        background-color: $hover-bg-color;
+        text-decoration: none;
+    }
+
+}
+
+.orange-button {
+    @include button-style($btn-height: 48px, $bg-color: $orange, $border-color: $orange, $text-color: $white, $hover-bg-color: transparent, $hover-text-color: $white);
+
+}
+
+.white-button {
+    @include button-style($btn-height: 40px, $bg-color: $white, $border-color: $orange, $text-color: $orange, $hover-bg-color: $orange, $hover-text-color: $white);
+
+}
+
+.transparent-button {
+    @include button-style($btn-height: 40px, $bg-color: transparent, $border-color: $white, $text-color: $white, $hover-bg-color: $white, $hover-text-color: $grey-bg);
+
+}
+// Ecllipses
+.yellow-eclipse {
+    height: 150px;
+    width: 130px;
+    object-fit: contain;
+    position: relative;
+
+    &::after {
+        content: url("./Assets//images/Ellipse\ 2-yellow-stroke.svg");
+        position: absolute;
+        // top: 0;
+        left: 10px;
+        height: inherit;
+        width: inherit;
+        z-index: 1;
+        animation: vibrate 2s alternate infinite;
+    }
+}
+
+.blue-eclipse {
+    width: 60px;
+    height: 50px;
+    position: relative;
+    object-fit: contain;
+
+    &::after {
+        content: url("./Assets//images/Ellipse\ 4-blue-stroke.svg");
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: inherit;
+        width: inherit;
+        z-index: 1;
+        // transform: rotate();
+        animation: vibrate 2s alternate infinite;
+    }
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translate(10px, 10px);
+    }
+
+    50% {
+        transform: translate(-10px, 10px);
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+    }
+
+}
+
+@keyframes anim {
+    0% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(10deg);
+    }
+
+}
+@mixin differences-section($bg-img, $bg-color, $text-color) {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #CACACA;
+    color: $text-color;
+    background-color: $bg-color;
+
+    .differences-img {
+        width: 330px;
+        height: 310px;
+        object-fit: contain;
+        background: $bg-img no-repeat center;
+        // background: url("./Assets//images/Base-school-img-bg.png") no-repeat center;
+        background-size: contain;
+        // display: inline-block;
+
+        img {
+            margin-left: -15px;
+            // margin-top: 2px;
+            border-radius: 190px 190px 0px 0px;
+        }
+    }
+
+    .top-right {
+        h2 {
+            margin-bottom: 16px;
+            color: $text-color;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            color: $text-color;
+        }
+
+        p {
+            @extend %medium-p;
+            color: $text-color;
+        }
+    }
+
+    .custom-heading {
+        h2 {
+            color: $grey-bg;
+        }
+    }
+
+
+}   

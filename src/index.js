@@ -1,22 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.scss';
+import './App.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
-  BrowserRouter,
-  Routes,
-  Route,
+	BrowserRouter,
+	Routes,
+	Route,
 } from "react-router-dom";
 
-// homepage 
-import Homepage from "./component/Homepage";
+// homepage main route 
+// import Homepage from "./component/Homepage";
+
+// Login and signup page 
+import LoginPage from "./Pages/LoginSignup/Login";
+import SignupPage from "./Pages/LoginSignup/Signup";
+import ResetPasswordPage from "./Pages/LoginSignup/ResetPassword";
+
+// Dashboard screens 
+import DashboardLayout from "./Components/DashboardLayout/DashboardLayout";
+import ParentApplicationForm from "./Pages/ParentApplicationForm/ParentApplicationFrom";
+import ChildApplicationForm from "./Pages/ChildApplicationForm/ChildApplicationForm";
+
 ReactDOM.render(
 	<React.Fragment>
 		<BrowserRouter >
-			{/* <ScrollTop> */}
-			<App />
-			{/* </ScrollTop> */}
+			{/* <App />*/}
+			<Routes>
+				{/* user unprotected routes  */}
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='/signup' element={<SignupPage />} />
+				<Route path='/reset-password' element={<ResetPasswordPage />} />
+
+				{/* user protected routes  */}
+				<Route path='/dashboard' element={<DashboardLayout />}>
+					<Route path='parent-application-form' element={<ParentApplicationForm />} />
+					<Route path='add-child-application-form' element={<ChildApplicationForm />} />
+				</Route>
+
+
+			</Routes>
+
+
 		</BrowserRouter>
 	</React.Fragment>,
 	document.getElementById('root')
