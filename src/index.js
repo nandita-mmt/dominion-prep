@@ -17,6 +17,7 @@ import {
 import LoginPage from "./Pages/LoginSignup/Login";
 import SignupPage from "./Pages/LoginSignup/Signup";
 import ResetPasswordPage from "./Pages/LoginSignup/ResetPassword";
+import ChangePasswordPage from "./Pages/LoginSignup/ChangePassword";
 
 // Dashboard screens 
 import DashboardLayout from "./Components/DashboardLayout/DashboardLayout";
@@ -32,6 +33,7 @@ ReactDOM.render(
 				<Route path='/login' element={<LoginPage />} />
 				<Route path='/signup' element={<SignupPage />} />
 				<Route path='/reset-password' element={<ResetPasswordPage />} />
+				<Route path='/change-password' element={<ChangePasswordPage />} />
 
 				{/* user protected routes  */}
 				<Route path='/dashboard' element={<DashboardLayout />}>

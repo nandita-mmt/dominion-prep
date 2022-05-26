@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import LoginSignupLogo from "../../Assets/images/Logo-login-page-logo.svg";
 
-export default function ResetPassword() {
+export default function ChangePassword() {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
@@ -24,15 +24,23 @@ export default function ResetPassword() {
                             <Form.Floating className="input-container">
                                 <Form.Control
                                     id="floatingInputCustom"
-                                    type="email"
-                                    placeholder="Enter Email Address"
+                                    type="password"
+                                    placeholder="Enter new password"
                                 />
-                                <label htmlFor="floatingInputCustom">Enter Email Address</label>
-                            </Form.Floating>                           
+                                <label htmlFor="floatingInputCustom">Enter new password</label>
+                            </Form.Floating>
+                            <Form.Floating className="input-container">
+                                <Form.Control
+                                    id="floatingInputCustom"
+                                    type="password"
+                                    placeholder="Confirm new password"
+                                />
+                                <label htmlFor="floatingInputCustom">Confirm new password</label>
+                            </Form.Floating>
 
                             {/* errors will return when field validation fails  */}
                             {errors.exampleRequired && <span>This field is required</span>}
-                            <button type="submit" className="white-button" href="/change-password">Send link</button>
+                            <button type="submit" className="white-button">Change Password</button>
                         </form>
                         <p className="redirect-text">Don’t have an account?
                             <a href="/signup"><font> Signup</font></a>
