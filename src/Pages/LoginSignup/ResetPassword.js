@@ -9,7 +9,6 @@ export default function ResetPassword() {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <React.Fragment>
             <div className="LoginSignupBody">
                 <div className="LoginSignupContainer">
                     <div className="left-div">
@@ -39,7 +38,6 @@ export default function ResetPassword() {
                         </p>
                     </div>
                 </div>
-            </div>
-        </React.Fragment>
+            </div>        
     )
 }

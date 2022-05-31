@@ -1,6 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Form from 'react-bootstrap/Form';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { styled } from '@mui/material/styles';
+import InputBase from '@mui/material/InputBase';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -11,20 +17,71 @@ import LoginSignupLogo from "../../Assets/images/Logo-login-page-logo.svg";
 export default function Signup() {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
+
+    const [age, setAge] = React.useState("");
+
+    const handleChange = (event) => {
+        setAge(event.target.value);
+    };
+    const BootstrapInput = styled(InputBase)(({ theme }) => ({
+        'label + &': {
+          marginTop: theme.spacing(3),
+          
+        },
+        '& .MuiInputBase-input': {
+          borderRadius: 24,
+          innerHeight: 50,
+          position: 'relative',
+          backgroundColor: 'transparent',
+          border: '1px solid #ced4da',
+          fontSize: 16,
+          padding: '10px 26px 10px 12px',
+          transition: theme.transitions.create(['border-color', 'box-shadow']),
+          // Use the system font instead of the default Roboto font.
+          fontFamily: [
+            'Montserrat',           
+            
+          ].join(','),
+          '&:focus': {
+            borderRadius: 24,
+            borderColor: '#58585A',
+            boxShadow: 'none',
+          },
+        },
+      }));
+
     return (
-        <React.Fragment>
-            <div className="LoginSignupBody">
-                <div className="LoginSignupContainer">
-                    <div className="left-div">
-                        <h1>DOMINION PREP</h1>
-                        <h2>Signup</h2>
-                        <div className="login-signgup-logo-container">
-                            <img className="img-fluid" src={LoginSignupLogo} alt="" />
-                        </div>
+        <div className="LoginSignupBody">
+            <div className="LoginSignupContainer">
+                <div className="left-div">
+                    <h1>DOMINION PREP</h1>
+                    <h2>Signup</h2>
+                    <div className="login-signgup-logo-container">
+                        <img className="img-fluid" src={LoginSignupLogo} alt="" />
                     </div>
-                    <div className="right-div">
-                        <form onSubmit={handleSubmit(onSubmit)}>                          
-                             <Form.Floating className="input-container select-box">
+                </div>
+                <div className="right-div">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <FormControl variant="standard" sx={{ m: 5, minWidth: 120 }}>
+                            <InputLabel id="demo-simple-select-standard-label">Identify Yourself</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-standard-label"
+                                id="demo-simple-select-standard"
+                                value={age}
+                                onChange={handleChange}
+                                label="identify"
+                                input={<BootstrapInput />}
+                            >
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
+                                <MenuItem value={10}>Ten</MenuItem>
+                                <MenuItem value={20}>Twenty</MenuItem>
+                                <MenuItem value={30}>Thirty</MenuItem>
+                            </Select>
+                        </FormControl>
+
+                        {/* <Form.Floating className="input-container select-box">
                                 <Form.Control
                                     id="dropdownMenuButton1"
                                     type="select"
@@ -37,59 +94,49 @@ export default function Signup() {
                                     <li><a className="dropdown-item" href="#">Another action</a></li>
                                     <li><a className="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
-                            </Form.Floating>
-                            {/* <div className="input-container select-box">
-                                <select className="form-control" placeholder="Identify Yourself" {...register("dropdown")}>
-                                    <option value="disabled selected hidden">Identify Yourself</option>
-                                    <option value="parent ">parent </option>
-                                    <option value=" teacher "> teacher </option>
-                                    <option value=" volunteer "> volunteer </option>
-                                    <option value=" intern"> intern</option>
-                                </select>
-                                <label htmlFor="email">Identify Yourself</label>
-                            </div> */}
-                            <Form.Floating className="input-container">
-                                <Form.Control
-                                    id="floatingInputCustom"
-                                    type="text"
-                                    placeholder="Enter Name"
-                                />
-                                <label htmlFor="floatingInputCustom">Enter Name</label>
-                            </Form.Floating>
-                            <Form.Floating className="input-container">
-                                <Form.Control
-                                    id="floatingInputCustom"
-                                    type="email"
-                                    placeholder="Enter Email Address"
-                                />
-                                <label htmlFor="floatingInputCustom">Enter Email Address</label>
-                            </Form.Floating>
-                            <Form.Floating className="input-container">
-                                <Form.Control
-                                    id="floatingInputCustom"
-                                    type="password"
-                                    placeholder="Enter Password"
-                                />
-                                <label htmlFor="floatingInputCustom">Enter Password</label>
-                            </Form.Floating>
-                            <Form.Floating className="input-container">
-                                <Form.Control
-                                    id="floatingInputCustom"
-                                    type="password"
-                                    placeholder="Confirm Password"
-                                />
-                                <label htmlFor="floatingInputCustom">Confirm Password</label>
-                            </Form.Floating>
+                            </Form.Floating> */}
 
-                            {errors.exampleRequired && <span>This field is required</span>}
-                            <button type="submit" className="white-button">Signup</button>
-                        </form>
-                        <p className="redirect-text">You have an account?
-                            <a href="/login"><font>Login</font></a>
-                        </p>
-                    </div>
+                        <Form.Floating className="input-container">
+                            <Form.Control
+                                id="floatingInputCustom1"
+                                type="text"
+                                placeholder="Enter Name"
+                            />
+                            <label htmlFor="floatingInputCustom">Enter Name</label>
+                        </Form.Floating>
+                        <Form.Floating className="input-container">
+                            <Form.Control
+                                id="floatingInputCustom2"
+                                type="email"
+                                placeholder="Enter Email Address"
+                            />
+                            <label htmlFor="floatingInputCustom">Enter Email Address</label>
+                        </Form.Floating>
+                        <Form.Floating className="input-container">
+                            <Form.Control
+                                id="floatingInputCustom3"
+                                type="password"
+                                placeholder="Enter Password"
+                            />
+                            <label htmlFor="floatingInputCustom">Enter Password</label>
+                        </Form.Floating>
+                        <Form.Floating className="input-container">
+                            <Form.Control
+                                id="floatingInputCustom4"
+                                type="password"
+                                placeholder="Confirm Password"
+                            />
+                            <label htmlFor="floatingInputCustom">Confirm Password</label>
+                        </Form.Floating>
+
+                        {errors.exampleRequired && <span>This field is required</span>}
+                        <button type="submit" className="white-button">Signup</button>
+                    </form>
+                    <p className="redirect-text">You have an account?
+                        <a href="/login"><font>Login</font></a>
+                    </p>
                 </div>
             </div>
-        </React.Fragment>
+        </div>
     )
 }

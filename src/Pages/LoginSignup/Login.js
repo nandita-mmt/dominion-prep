@@ -9,7 +9,6 @@ export default function Login() {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
-        <React.Fragment>
             <div className="LoginSignupBody">
                 <div className="LoginSignupContainer">
                     <div className="left-div">
@@ -37,16 +36,7 @@ export default function Login() {
                                 />
                                 <label htmlFor="floatingPasswordCustom">Enter Password</label>
                                 <a href="/reset-password"><span className="reset-password-link">Reset Password</span></a>
-                            </Form.Floating>
-                             {/* <div className="input-container">
-                                <input type="email" className="form-control" placeholder="Enter Email Address" {...register('email')}/>
-                                <label htmlFor="email">Email Address</label>
-                            </div>
-                            <div className="password-container input-container">
-                                <input type="password" className="form-control" placeholder="Enter Password" {...register('password')} />
-                                <label htmlFor="email">Enter Password</label>
-                                <a href="/reset-password"><span className="reset-password-link">Reset Password</span></a>
-                            </div> */}
+                            </Form.Floating>                             
                             <div className="input-group">
                                 <input type="checkbox" name="selectTc" {...register('selectTc')} id="selectTc"
                                 />
@@ -62,6 +52,6 @@ export default function Login() {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+       
     )
 }
