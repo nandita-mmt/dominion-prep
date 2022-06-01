@@ -26,7 +26,15 @@ export default function Signup() {
     const BootstrapInput = styled(InputBase)(({ theme }) => ({
         'label + &': {
           marginTop: theme.spacing(3),
-          
+        },
+        '& .MuiInputLabel-root':{
+            fontFamily:'Montserrat', 
+                     
+            '& .Mui-focused':{
+                borderColor:'#fd4f00',
+                fontSize: 12,
+                // transform: `scale(2)`,             
+            },
         },
         '& .MuiInputBase-input': {
           borderRadius: 24,
@@ -36,6 +44,7 @@ export default function Signup() {
           border: '1px solid #ced4da',
           fontSize: 16,
           padding: '10px 26px 10px 12px',
+                  
           transition: theme.transitions.create(['border-color', 'box-shadow']),
           // Use the system font instead of the default Roboto font.
           fontFamily: [
@@ -46,6 +55,7 @@ export default function Signup() {
             borderRadius: 24,
             borderColor: '#58585A',
             boxShadow: 'none',
+            fontFamily:'Montserrat',    
           },
         },
       }));
@@ -62,7 +72,7 @@ export default function Signup() {
                 </div>
                 <div className="right-div">
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <FormControl variant="standard" sx={{ m: 5, minWidth: 120 }}>
+                        <FormControl variant="standard" sx={{  minWidth: 200}}>
                             <InputLabel id="demo-simple-select-standard-label">Identify Yourself</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
@@ -71,6 +81,18 @@ export default function Signup() {
                                 onChange={handleChange}
                                 label="identify"
                                 input={<BootstrapInput />}
+                                
+                                MenuProps={{
+                                    anchorOrigin: {
+                                      vertical: "bottom",
+                                      horizontal: "right"
+                                    },
+                                    transformOrigin: {                                   
+                                      horizontal: "right"
+                                    },
+                                    getContentAnchorEl: null
+                                    
+                                  }}
                             >
                                 <MenuItem value="">
                                     <em>None</em>
